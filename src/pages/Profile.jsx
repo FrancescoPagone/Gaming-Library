@@ -14,7 +14,7 @@ export default function Profile() {
     useEffect(() => {
         if (user) {
             setEmail(user.email);
-            fetchComments(); // Carica i commenti dell'utente
+            fetchComments();
         }
     }, [user]);
 
@@ -37,11 +37,11 @@ export default function Profile() {
         setLoading(true);
 
         try {
-            // Aggiorna l'email
+           
             const { error: emailError } = await supabase.auth.updateUser({ email });
             if (emailError) throw emailError;
 
-            // Aggiorna la password
+            
             if (newPassword) {
                 const { error: passwordError } = await supabase.auth.updateUser({ password: newPassword });
                 if (passwordError) throw passwordError;

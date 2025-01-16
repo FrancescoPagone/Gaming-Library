@@ -112,7 +112,7 @@ export default function GameDetails() {
 
     return (
         <div className="max-w-6xl mx-auto px-4 py-8">
-            {/* Breadcrumbs */}
+           
             <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8">
                 <Link to="/" className="flex items-center gap-1 hover:text-white">
                     <Home className="w-4 h-4" />
@@ -122,7 +122,7 @@ export default function GameDetails() {
                 <span className="text-white">{game.name}</span>
             </nav>
 
-            {/* Hero Section */}
+            
             <div className="relative rounded-lg overflow-hidden mb-8">
                 <img
                     src={activeImage || game.background_image
@@ -157,7 +157,7 @@ export default function GameDetails() {
                 </div>
             </div>
 
-            {/* Screenshots */}
+            
             <div className="mb-8">
                 <h2 className="text-2xl font-bold mb-4">Immagini</h2>
                 <div className="grid grid-cols-4 gap-4">
@@ -179,7 +179,7 @@ export default function GameDetails() {
                 </div>
             </div>
 
-            {/* Details Grid */}
+           
             <div className="grid md:grid-cols-3 gap-8 mb-8">
                 <div className="md:col-span-2">
                     <h2 className="text-2xl font-bold mb-4">Descrizione</h2>
@@ -230,7 +230,7 @@ export default function GameDetails() {
                 </div>
             </div>
 
-            {/* System Requirements */}
+            
             {game.platforms.some((p) => p.requirements) && (
                 <div className="mb-8">
                     <h2 className="text-2xl font-bold mb-4">Requisiti di sistema</h2>

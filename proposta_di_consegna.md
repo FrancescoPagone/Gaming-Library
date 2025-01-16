@@ -37,3 +37,8 @@ Ho utilizzato Tailwind CSS per lo styling, creando un design responsive e modern
 
 ## Context
 Ho utilizzato React Context per gestire lo stato dell'applicazione, inclusi i dati sui giochi, le informazioni dell'utente e le preferenze di visualizzazione. Il contesto ci permette di condividere lo stato tra i vari componenti senza dover passare le props manualmente.
+
+## Deployment
+
+Ho utilizzato Netlify per il deployment.
+Link: https://gaming-library.netlify.app/
