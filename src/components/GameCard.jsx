@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Star } from 'lucide-react';
 
 export default function GameCard({ game }) {
-    // Se non abbiamo un game object valido, non renderizziamo nulla
+    
     if (!game || typeof game !== 'object') {
         return null;
     }
@@ -18,7 +18,7 @@ export default function GameCard({ game }) {
         platforms = [],
     } = game;
 
-    // Se non abbiamo un ID, non possiamo creare il link
+    
     if (!id) {
         return null;
     }
@@ -36,8 +36,8 @@ export default function GameCard({ game }) {
                         className="w-full h-full object-cover"
                         loading="lazy"
                         onError={(e) => {
-                            e.target.src = '/placeholder-game.jpg'; // Assicurati di avere un'immagine placeholder
-                            e.target.onerror = null; // Previene loop infiniti
+                            e.target.src = '/placeholder-game.jpg'; 
+                            e.target.onerror = null; 
                         }}
                     />
                 ) : (

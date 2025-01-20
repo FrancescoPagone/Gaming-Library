@@ -33,7 +33,7 @@ export default function Home() {
         [loading, hasMore]
     );
 
-    // Reset page and games when filters or search change
+   
     useEffect(() => {
         setGames([]);
         setPage(1);

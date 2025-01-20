@@ -96,6 +96,19 @@ export default function GameDetails() {
         }
     };
 
+    const handleDeleteComment = async (commentId) => {
+        try {
+            await supabase
+                .from('comments')
+                .delete()
+                .eq('id', commentId);
+            
+            setComments(comments.filter(comment => comment.id !== commentId));
+        } catch (error) {
+            console.error('Errore durante l\'eliminazione del commento:', error);
+        }
+    };
+
     if (loading) {
         return (
             <div className="animate-pulse max-w-6xl mx-auto px-4">
@@ -297,6 +310,12 @@ export default function GameDetails() {
                                 <span className="text-gray-400 text-sm">{new Date(comment.created_at).toLocaleDateString()}</span>
                             </div>
                             <p>{comment.content}</p>
+                            <button
+                                onClick={() => handleDeleteComment(comment.id)}
+                                className="text-red-500 hover:text-red-400"
+                            >
+                                Elimina
+                            </button>
                         </div>
                     ))}
                 </div>
