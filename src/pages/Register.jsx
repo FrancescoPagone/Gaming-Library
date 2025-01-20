@@ -25,7 +25,7 @@ export default function Register() {
 
         try {
             await signUp(email, password);
-            setShowNotification(true);
+            alert('Grazie per esserti registrato! Per effettuare il login, controlla la tua email per confermare.');
             navigate('/profile');
         } catch (error) {
             setError('Errore nella creazione dell\'account.');
