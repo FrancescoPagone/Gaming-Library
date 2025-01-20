@@ -14,21 +14,21 @@ export const api = {
                 ordering: '-rating',
             };
 
-            // Aggiungi i filtri solo se sono valori validi
+            
             if (genre && genre !== 'null' && genre !== 'undefined') {
                 params.genres = genre;
             }
 
             if (platform && platform !== 'null' && platform !== 'undefined') {
-                params.parent_platforms = platform; // Cambiato da platforms a parent_platforms
+                params.parent_platforms = platform; 
             }
 
-            // Log per debug
+            
             console.log('Request params:', params);
 
             const response = await axios.get(`${BASE_URL}/games`, { params });
             
-            // Log per debug
+            
             console.log('Response data:', response.data);
             
             return response.data;
@@ -52,10 +52,10 @@ export const api = {
             }
 
             if (platform && platform !== 'null' && platform !== 'undefined') {
-                params.parent_platforms = platform; // Cambiato da platforms a parent_platforms
+                params.parent_platforms = platform; 
             }
 
-            // Log per debug
+           
             console.log('Search params:', params);
 
             const response = await axios.get(`${BASE_URL}/games`, { params });
@@ -81,7 +81,7 @@ export const api = {
 
     getPlatforms: async () => {
         try {
-            // Modifichiamo per ottenere le parent platforms invece di tutte le platforms
+           
             const response = await axios.get(`${BASE_URL}/platforms/lists/parents`, {
                 params: {
                     key: API_KEY,
