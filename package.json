@@ -10,11 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.0",
     "@supabase/supabase-js": "^2.47.15",
     "autoprefixer": "^10.4.20",
     "axios": "^1.7.9",
     "flowbite": "^2.5.2",
-    "lucide-react": "^0.471.1",
+    "lucide-react": "^0.471.2",
     "postcss": "^8.5.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

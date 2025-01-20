@@ -19,6 +19,7 @@ export default function GameDetails() {
         const fetchGame = async () => {
             try {
                 const gameData = await api.getGame(Number(id));
+                console.log('Game data:', gameData);
                 setGame(gameData);
                 setActiveImage(gameData.background_image);
 
@@ -112,7 +113,6 @@ export default function GameDetails() {
 
     return (
         <div className="max-w-6xl mx-auto px-4 py-8">
-           
             <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8">
                 <Link to="/" className="flex items-center gap-1 hover:text-white">
                     <Home className="w-4 h-4" />
@@ -122,7 +122,7 @@ export default function GameDetails() {
                 <span className="text-white">{game.name}</span>
             </nav>
 
-            
+
             <div className="relative rounded-lg overflow-hidden mb-8">
                 <img
                     src={activeImage || game.background_image
@@ -157,29 +157,35 @@ export default function GameDetails() {
                 </div>
             </div>
 
-            
+
             <div className="mb-8">
                 <h2 className="text-2xl font-bold mb-4">Immagini</h2>
                 <div className="grid grid-cols-4 gap-4">
-                    <img
-                        src={game.background_image}
-                        alt="Main"
-                        onClick={() => setActiveImage(game.background_image)}
-                        className={`w-full h-24 object-cover rounded-lg cursor-pointer transition-opacity ${activeImage === game.background_image ? 'opacity-100' : 'opacity-60'}`}
-                    />
-                    {game.screenshots.map((screenshot) => (
+                    {activeImage && (
                         <img
-                            key={screenshot.id}
-                            src={screenshot.image}
-                            alt={`Screenshot ${screenshot.id}`}
-                            onClick={() => setActiveImage(screenshot.image)}
-                            className={`w-full h-24 object-cover rounded-lg cursor-pointer transition-opacity ${activeImage === screenshot.image ? 'opacity-100' : 'opacity-60'}`}
+                            src={activeImage}
+                            alt="Main"
+                            onClick={() => setActiveImage(activeImage)}
+                            className={`w-full h-24 object-cover rounded-lg cursor-pointer transition-opacity ${activeImage === activeImage ? 'opacity-100' : 'opacity-60'}`}
                         />
-                    ))}
+                    )}
+                    {game.screenshots && game.screenshots.length > 0 ? (
+                        game.screenshots.map((screenshot) => (
+                            <img
+                                key={screenshot.id}
+                                src={screenshot.image}
+                                alt={`Screenshot ${screenshot.id}`}
+                                onClick={() => setActiveImage(screenshot.image)}
+                                className={`w-full h-24 object-cover rounded-lg cursor-pointer transition-opacity ${activeImage === screenshot.image ? 'opacity-100' : 'opacity-60'}`}
+                            />
+                        ))
+                    ) : (
+                        <p className="text-gray-400">Nessuno screenshot disponibile.</p>
+                    )}
                 </div>
             </div>
 
-           
+
             <div className="grid md:grid-cols-3 gap-8 mb-8">
                 <div className="md:col-span-2">
                     <h2 className="text-2xl font-bold mb-4">Descrizione</h2>
@@ -230,7 +236,7 @@ export default function GameDetails() {
                 </div>
             </div>
 
-            
+
             {game.platforms.some((p) => p.requirements) && (
                 <div className="mb-8">
                     <h2 className="text-2xl font-bold mb-4">Requisiti di sistema</h2>

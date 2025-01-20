@@ -73,7 +73,7 @@ export default function Navbar() {
                                     className="text-white hover:text-gray-300 flex items-center gap-2"
                                 >
                                     <Heart className="w-5 h-5" />
-                                    Wishlist
+                                    Lista Preferiti
                                 </Link>
 
                                 <div className="relative">

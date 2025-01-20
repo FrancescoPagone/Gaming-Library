@@ -10,6 +10,7 @@ export default function Register() {
     const [loading, setLoading] = useState(false);
     const { signUp } = useAuth();
     const navigate = useNavigate();
+    const [showNotification, setShowNotification] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -24,7 +25,8 @@ export default function Register() {
 
         try {
             await signUp(email, password);
-            navigate('/');
+            setShowNotification(true);
+            navigate('/profile');
         } catch (error) {
             setError('Errore nella creazione dell\'account.');
         } finally {
@@ -98,6 +100,12 @@ export default function Register() {
                     </Link>
                 </p>
             </form>
+
+            {showNotification && (
+                <div className="fixed top-0 right-0 mt-4 mr-4 bg-green-500 text-white p-4 rounded shadow-lg">
+                    Controlla la tua email per confermare la registrazione.
+                </div>
+            )}
         </div>
     );
 }

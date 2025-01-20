@@ -17,7 +17,7 @@ export default function Login() {
 
         try {
             await signIn(email, password);
-            navigate('/');
+            navigate('/profile');
         } catch (error) {
             setError('Errore nel login. Controlla le tue credenziali.');
         } finally {

@@ -37,6 +37,19 @@ export default function GameCard({ game }) {
                         </span>
                     ))}
                 </div>
+                <div>
+                    <h3 className="font-semibold mb-2 mt-2">Piattaforme</h3>
+                    <div className="flex flex-wrap gap-2">
+                        {game.platforms.slice(0, 3).map((platform) => (
+                            <span
+                                key={platform.platform.id}
+                                className="px-2 py-1 bg-gray-700 dark:bg-gray-800 rounded-full text-sm text-gray-200"
+                            >
+                                {platform.platform.name}
+                            </span>
+                        ))}
+                    </div>
+                </div>
             </div>
         </Link>
     );
